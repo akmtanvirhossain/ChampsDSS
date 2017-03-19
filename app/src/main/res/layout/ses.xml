@@ -268,7 +268,7 @@
     <View android:id="@+id/lineBuffalo" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
     <LinearLayout android:id="@+id/secBull" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
         <TextView android:id="@+id/lblBull" android:text="" android:layout_width="60sp" android:layout_height="wrap_content" android:textSize="20sp" />
-        <TextView android:id="@+id/VlblBull" android:text="B .  ষাঁড়/দুকধ জাত গরু" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <TextView android:id="@+id/VlblBull" android:text="B .  ষাঁড়/গরু" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
          <EditText android:id="@+id/txtBull" android:maxLength="2" android:layout_width="60sp" android:inputType="number" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
     </LinearLayout>
     <View android:id="@+id/lineBull" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />

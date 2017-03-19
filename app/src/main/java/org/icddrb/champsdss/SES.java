@@ -965,7 +965,7 @@
          listRoof.add("11-খড়/পাতা");
          listRoof.add("12-ছড়ি/পাতা/গাছের কান্ড");
          listRoof.add("21-মাটি");
-         listRoof.add("22-বাঁশ");
+         listRoof.add("22-বাঁশ/পাটকাঠি");
          listRoof.add("23-কাঠের তক্তা");
          listRoof.add("24-পাথর");
          listRoof.add("31-টিন");
@@ -1010,8 +1010,8 @@
          listWall.add("");
          listWall.add("11-খড়/পাতা");
          listWall.add("12-ছড়ি/পাতা/গাছের কান্ড");
-         listWall.add("21-মাটি");
-         listWall.add("22-বাঁশ");
+         listWall.add("21-মাটি/পাটকাঠি");
+         listWall.add("22-বাঁশ/পাটকাঠি");
          listWall.add("23-কাঠের তক্তা");
          listWall.add("24-পাথর");
          listWall.add("31-টিন");
