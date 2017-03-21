@@ -98,63 +98,93 @@
     <!--</LinearLayout>-->
     <!--<View android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="0sp" android:background="#CCCCCC" />-->
 
-    <ScrollView android:layout_width="fill_parent" android:layout_height="fill_parent" android:overScrollMode="always" android:isScrollContainer="true" android:scrollbarAlwaysDrawVerticalTrack="true" android:scrollbarStyle="outsideInset" android:scrollbars="vertical">
-    <LinearLayout android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="vertical">
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="vertical">
 
-        <!--****************** added by sakib**************-->
         <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:textAlignment="center"
-            android:gravity="left" android:paddingTop="5sp" android:paddingBottom="5sp"
-            android:background="@color/tableHeading">
-            <TextView
-                android:text=""
-                android:layout_width="50sp"
-                android:layout_height="wrap_content"/>
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-            <TextView
-                android:text=" খানা #"
-                android:layout_width="80sp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvListHeadingNo"
-                android:textColor="@android:color/black"/>
+            <!--****************** added by sakib**************-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/tableHeading"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:paddingBottom="5sp"
+                android:paddingTop="5sp"
+                android:textAlignment="center">
 
-            <TextView
-                android:text="খানা প্রধান"
-                android:layout_width="250sp"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvListHeadingName"
-                android:textColor="@android:color/black"/>
+                <TextView
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
 
-            <TextView
-                android:text="মোট সদস্য"
-                android:layout_width="120sp"
+                <TextView
+                    android:id="@+id/tvListHeadingNo"
+                    android:layout_width="80sp"
+                    android:layout_height="wrap_content"
+                    android:text=" খানা #"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tvListHeadingName"
+                    android:layout_width="250sp"
+                    android:layout_height="wrap_content"
+                    android:text="খানা প্রধান"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tvListHeadingTotMem"
+                    android:layout_width="120sp"
+                    android:layout_height="wrap_content"
+                    android:text="মোট সদস্য"
+                    android:textColor="@android:color/black" />
+
+                <TextView
+                    android:id="@+id/tvListHeadingStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ফলাফল"
+                    android:textColor="@android:color/black" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_marginBottom="0sp"
+                android:background="#CCCCCC" />
+
+            <!--****************** added by sakib**************-->
+            <LinearLayout
+                android:id="@+id/secListView"
+                android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:id="@+id/tvListHeadingTotMem"
-                android:textColor="@android:color/black"/>
-            <TextView
-                android:text="ফলাফল"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:id="@+id/tvListHeadingStatus"
-                android:textColor="@android:color/black" />
+                android:orientation="horizontal">
+
+                <ListView
+                    android:id="@+id/lstData"
+                    android:layout_width="match_parent"
+                    android:layout_height="550sp"
+                    android:clickable="true"
+                    android:divider="#000000"
+                    android:dividerHeight="1px"
+                    android:scrollbars="vertical"></ListView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginBottom="20sp"
+                android:background="#CCCCCC" />
         </LinearLayout>
-        <View android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="0sp" android:background="#CCCCCC" />
-
-        <!--****************** added by sakib**************-->
-       <LinearLayout android:id="@+id/secListView" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal">
-             <ListView android:scrollbars="vertical"
-                  android:id="@+id/lstData"
-                  android:layout_width="match_parent"
-                  android:layout_height="550sp"
-                  android:divider="#000000"
-                  android:dividerHeight="1px"
-                  android:clickable="true">
-              </ListView>
-       </LinearLayout>
-        <View android:layout_height="2dip" android:layout_width="fill_parent" android:layout_marginBottom="20sp" android:background="#CCCCCC" />
-    </LinearLayout>
-</ScrollView>
+    </ScrollView>
 </LinearLayout>
