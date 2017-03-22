@@ -21,7 +21,7 @@
     </LinearLayout>
     <View android:id="@+id/lineVill" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
 
-    <LinearLayout android:id="@+id/secMenu" android:layout_weight="3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+    <LinearLayout android:id="@+id/secMenu" android:weightSum="3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
         <Button android:id="@+id/btnMemberName" android:layout_weight="1" android:layout_width="wrap_content"  android:layout_height="40sp" android:layout_marginBottom="10sp" android:layout_marginLeft="0sp" android:layout_marginRight="10sp" android:layout_marginTop="5dip" android:background="@drawable/button_style" android:text="সদস্যের নামের তালিকা তৈরি" android:textSize="18sp" />
         <Button android:id="@+id/btnSES" android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="40sp" android:layout_marginBottom="10sp" android:layout_marginLeft="10sp" android:layout_marginRight="10sp" android:layout_marginTop="5dip" android:background="@drawable/button_style" android:text="খানার তথ্য" android:textSize="18sp" />
         <Button android:id="@+id/btnPregHis" android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="40sp" android:layout_marginBottom="10sp" android:layout_marginLeft="10sp" android:layout_marginRight="10sp" android:layout_marginTop="5dip" android:background="@drawable/button_style" android:text="গর্ভের ইতিহাস" android:textSize="18sp" />
@@ -34,76 +34,86 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-    <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:isScrollContainer="true"
-        android:overScrollMode="always"
-        android:scrollbarAlwaysDrawVerticalTrack="true"
-        android:scrollbarStyle="outsideInset"
-        android:scrollbars="vertical">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:isScrollContainer="true"
+            android:overScrollMode="always"
+            android:scrollbarAlwaysDrawVerticalTrack="true"
+            android:scrollbarStyle="outsideInset"
+            android:scrollbars="vertical">
 
             <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@color/tableHeading"
-                android:gravity="left"
-                android:orientation="horizontal"
-                android:paddingBottom="5sp"
-                android:paddingTop="5sp"
-                android:textAlignment="center">
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
 
-                <TextView
-                    android:layout_width="50sp"
-                    android:layout_height="wrap_content"
-                    android:text="" />
-
-                <include
-                    layout="@layout/memberheading"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1" />
+                    android:background="@color/tableHeading"
+                    android:gravity="left"
+                    android:orientation="horizontal"
+                    android:paddingBottom="5sp"
+                    android:paddingTop="5sp"
+                    android:textAlignment="center">
+
+                    <LinearLayout android:id="@+id/secListRow" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal"  android:background="#C2E0EC" android:paddingTop="8px" android:paddingBottom="5px">
+                        <TextView android:text="Vill" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content" android:visibility="gone" />
+                        <TextView android:text="Bari" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content" android:visibility="gone" />
+                        <TextView android:text="HH" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content" android:visibility="gone" />
+                        <TextView android:text="  সিরিয়াল নং" android:layout_width="80dp" android:layout_marginLeft="50sp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="নাম" android:layout_width="190sp" android:gravity="left" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="স্থায়ী নাম্বার" android:layout_width="170dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="সম্পর্ক" android:layout_width="70dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="লিঙ্গ" android:layout_width="70dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="জন্ম তারিখ" android:layout_width="120dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="বয়স(Y)" android:layout_width="80dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="মায়ের সিরিয়াল" android:layout_width="100dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="বাবার সিরিয়াল" android:layout_width="100dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="সর্বোচ্চ শ্রেণি পাশ" android:layout_width="100dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text=" বৈবাহিক অবস্থা" android:layout_width="100dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text=" পেশা" android:layout_width="100dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="স্বামী/স্ত্রীর সিরিয়াল 1" android:layout_width="120dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="স্বামী/স্ত্রীর সিরিয়াল 2" android:layout_width="120dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="স্বামী/স্ত্রীর সিরিয়াল 3" android:layout_width="120dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="স্বামী/স্ত্রীর সিরিয়াল 4" android:layout_width="120dp" android:gravity="center" android:layout_height="wrap_content" android:textSize="16sp"/>
+                        <TextView android:text="EnType" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content" android:visibility="gone"  android:textSize="16sp"/>
+                        <TextView android:text="EnDate" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content" android:visibility="gone" android:textSize="16sp"/>
+                        <TextView android:text="ExType" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content" android:visibility="gone" android:textSize="16sp"/>
+                        <TextView android:text="ExDate" android:layout_width="50dp" android:gravity="center" android:layout_height="wrap_content" android:visibility="gone" android:textSize="16sp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
 
                 <View
                     android:layout_width="fill_parent"
                     android:layout_height="1dip"
                     android:layout_marginBottom="0sp"
                     android:background="#CCCCCC" />
+
+                <LinearLayout
+                    android:id="@+id/secListView"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <ListView
+                        android:id="@+id/lstData"
+                        android:layout_width="match_parent"
+                        android:layout_height="600sp"
+                        android:clickable="true"
+                        android:divider="#000000"
+                        android:dividerHeight="1px"
+                        android:scrollbars="vertical"></ListView>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="2dip"
+                    android:layout_marginBottom="20sp"
+                    android:background="#CCCCCC" />
             </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="1dip"
-                android:layout_marginBottom="0sp"
-                android:background="#CCCCCC" />
-
-            <LinearLayout
-                android:id="@+id/secListView"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ListView
-                    android:id="@+id/lstData"
-                    android:layout_width="match_parent"
-                    android:layout_height="550sp"
-                    android:clickable="true"
-                    android:divider="#000000"
-                    android:dividerHeight="1px"
-                    android:scrollbars="vertical"></ListView>
-            </LinearLayout>
-
-            <View
-                android:layout_width="fill_parent"
-                android:layout_height="2dip"
-                android:layout_marginBottom="20sp"
-                android:background="#CCCCCC" />
-        </LinearLayout>
-    </ScrollView>
+        </ScrollView>
     </HorizontalScrollView>
 </LinearLayout>

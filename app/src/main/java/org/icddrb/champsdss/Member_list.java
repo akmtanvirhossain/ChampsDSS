@@ -91,7 +91,7 @@ public class Member_list extends Activity {
          super.onCreate(savedInstanceState);
    try
      {
-         setContentView(R.layout.member_list);
+         setContentView(R.layout.member_list1);
          C = new Connection(this);
          g = Global.getInstance();
 
@@ -374,7 +374,7 @@ public class Member_list extends Activity {
              dataAdapter = new SimpleAdapter(Member_list.this, dataList, R.layout.member_list,new String[] {"rowsec"},
                            new int[] {R.id.secListRow});
              list.setAdapter(new DataListAdapter(this, dataAdapter));
-            Utility.setListViewHeightBasedOnChildren(list);
+            //Utility.setListViewHeightBasedOnChildren(list);
         }
         catch(Exception  e)
         {
