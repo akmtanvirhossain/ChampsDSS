@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"  android:layout_height="wrap_content" android:scrollbars="vertical"
+    android:orientation="vertical">
+    <LinearLayout android:layout_width="fill_parent" android:layout_height="45sp" android:orientation="horizontal" android:background="@color/pageHeadingBack">
+        <ImageButton android:id="@+id/cmdBack" android:background="@color/pageHeadingBack" android:src="@drawable/back" android:layout_width="65sp" android:layout_height="match_parent"/>
+        <TextView android:id="@+id/lblHeading" android:text="খানা সদস্যদের তালিকা" android:paddingLeft="10sp" android:layout_width="match_parent" android:layout_height="match_parent" android:gravity="center_vertical" android:textSize="20sp" android:textColor="@color/pageHeading"/>
+    </LinearLayout>
+    <View android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="5sp" android:background="#CCCCCC" />
+
+    <LinearLayout android:id="@+id/secVill" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+
+        <TextView android:id="@+id/VlblVill" android:text="খানা নম্বর" android:layout_width="100sp" android:layout_height="wrap_content" android:textSize="20sp" />
+        <EditText android:id="@+id/txtVill" android:maxLength="3" android:layout_width="60sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <EditText android:id="@+id/txtBari" android:maxLength="4" android:layout_width="60sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" />
+        <EditText android:id="@+id/txtHH" android:maxLength="2" android:layout_width="50sp" android:inputType="text" android:layout_height="wrap_content" style="@style/customEdit" android:layout_marginRight="20sp" android:textSize="20sp" />
+
+        <TextView android:id="@+id/VlblHHHead" android:text="খানা প্রধান" android:layout_column="0" android:layout_width="100sp" android:textSize="20sp" android:layout_height="wrap_content"/>
+        <TextView android:id="@+id/lblHHHead" android:textSize="20sp" android:layout_width="fill_parent" android:layout_height="wrap_content" android:layout_column="1" android:gravity="left"/>
+
+    </LinearLayout>
+    <View android:id="@+id/lineVill" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" />
+
+    <LinearLayout android:id="@+id/secMenu" android:layout_weight="3" android:layout_width="fill_parent" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+        <Button android:id="@+id/btnMemberName" android:layout_weight="1" android:layout_width="wrap_content"  android:layout_height="40sp" android:layout_marginBottom="10sp" android:layout_marginLeft="0sp" android:layout_marginRight="10sp" android:layout_marginTop="5dip" android:background="@drawable/button_style" android:text="সদস্যের নামের তালিকা তৈরি" android:textSize="18sp" />
+        <Button android:id="@+id/btnSES" android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="40sp" android:layout_marginBottom="10sp" android:layout_marginLeft="10sp" android:layout_marginRight="10sp" android:layout_marginTop="5dip" android:background="@drawable/button_style" android:text="খানার তথ্য" android:textSize="18sp" />
+        <Button android:id="@+id/btnPregHis" android:layout_weight="1" android:layout_width="wrap_content" android:layout_height="40sp" android:layout_marginBottom="10sp" android:layout_marginLeft="10sp" android:layout_marginRight="10sp" android:layout_marginTop="5dip" android:background="@drawable/button_style" android:text="গর্ভের ইতিহাস" android:textSize="18sp" />
+        <Button android:id="@+id/btnRefresh" android:visibility="gone" android:layout_weight="1"  android:background="@drawable/button_style_blue" android:textSize="18sp" android:textColor="#FFFFFF" android:layout_width="wrap_content" android:layout_height="40sp" android:layout_marginTop="5dip" android:layout_marginBottom="10sp" android:text=" Refresh " android:paddingLeft="5sp" android:paddingRight="5sp"/>
+    </LinearLayout>
+
+    <View android:id="@+id/lineMenu" android:layout_height="1dip" android:layout_width="fill_parent" android:layout_marginBottom="0sp" android:background="#CCCCCC" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:isScrollContainer="true"
+        android:overScrollMode="always"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="outsideInset"
+        android:scrollbars="vertical">
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/tableHeading"
+                android:gravity="left"
+                android:orientation="horizontal"
+                android:paddingBottom="5sp"
+                android:paddingTop="5sp"
+                android:textAlignment="center">
+
+                <TextView
+                    android:layout_width="50sp"
+                    android:layout_height="wrap_content"
+                    android:text="" />
+
+                <include
+                    layout="@layout/memberheading"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1" />
+
+                <View
+                    android:layout_width="fill_parent"
+                    android:layout_height="1dip"
+                    android:layout_marginBottom="0sp"
+                    android:background="#CCCCCC" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="1dip"
+                android:layout_marginBottom="0sp"
+                android:background="#CCCCCC" />
+
+            <LinearLayout
+                android:id="@+id/secListView"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ListView
+                    android:id="@+id/lstData"
+                    android:layout_width="match_parent"
+                    android:layout_height="550sp"
+                    android:clickable="true"
+                    android:divider="#000000"
+                    android:dividerHeight="1px"
+                    android:scrollbars="vertical"></ListView>
+            </LinearLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="2dip"
+                android:layout_marginBottom="20sp"
+                android:background="#CCCCCC" />
+        </LinearLayout>
+    </ScrollView>
+    </HorizontalScrollView>
+</LinearLayout>
