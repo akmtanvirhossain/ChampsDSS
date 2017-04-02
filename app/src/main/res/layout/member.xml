@@ -176,6 +176,17 @@
         <TextView android:id="@+id/VlblExDate" android:text="ExDate" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" android:visibility="gone" />
         <EditText android:id="@+id/dtpExDate" android:drawableRight="@drawable/calendersmall" android:layout_width="150sp" android:inputType="text" android:layout_height="wrap_content" android:focusable="false" style="@style/customEdit" android:layout_marginRight="10sp" android:textSize="20sp" android:visibility="gone" />
     </LinearLayout>
+
+
+        <View android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" android:visibility="gone" />
+        <LinearLayout android:layout_width="fill_parent" android:background="#006699" android:layout_height="wrap_content" android:orientation="horizontal" style="@style/rowStyle0">
+            <TextView android:text="" android:layout_width="60sp" android:layout_height="wrap_content" android:textSize="20sp"  />
+            <TextView android:text="ডেটা আবার পর্যালোচনা করা প্রয়োজন" android:textColor="#FFFFFF" android:layout_width="300sp" android:layout_height="wrap_content" android:textSize="20sp" />
+            <CheckBox android:id="@+id/chkNeedReview"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:text="" android:background="#FFFFFF" />
+        </LinearLayout>
+
     <View android:id="@+id/lineExDate" android:layout_height="1dip" android:layout_width="fill_parent" android:background="#CCCCCC" android:visibility="gone" />
        <LinearLayout android:layout_width="fill_parent" android:paddingTop="20sp" android:layout_height="wrap_content" android:orientation="horizontal">
        	<Button android:id="@+id/cmdSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@drawable/button_style"

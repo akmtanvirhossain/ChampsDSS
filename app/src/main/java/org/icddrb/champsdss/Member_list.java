@@ -368,6 +368,7 @@ public class Member_list extends Activity {
                  map.put("ExType", item.getExType());
                  map.put("ExDate", item.getExDate().toString().length()==0 ? "" : Global.DateConvertDMY(item.getExDate()));
                  map.put("sl", i.toString());
+                 map.put("needreview", item.getNeedReview());
                  i+=1;
                  dataList.add(map);
              }
@@ -581,8 +582,13 @@ public class Member_list extends Activity {
              MSlNo.setTextColor(Color.RED);
              Name.setTextColor(Color.RED);
          } else {
-             MSlNo.setTextColor(Color.BLACK);
-             Name.setTextColor(Color.BLACK);
+             if(o.get("needreview").equals("1")){
+                 MSlNo.setTextColor(Color.parseColor("#006699"));
+                 Name.setTextColor(Color.parseColor("#006699"));
+             }else {
+                 MSlNo.setTextColor(Color.BLACK);
+                 Name.setTextColor(Color.BLACK);
+             }
          }
 
          if(Integer.valueOf(o.get("sl"))%2==0) {
@@ -593,6 +599,8 @@ public class Member_list extends Activity {
              secListRow.setBackgroundColor(Color.parseColor("#FFFFFF"));
              delMember.setBackgroundColor(Color.parseColor("#FFFFFF"));
          }
+
+
 
          secListRow.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {

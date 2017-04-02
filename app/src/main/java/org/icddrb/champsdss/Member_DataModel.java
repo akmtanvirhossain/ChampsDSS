@@ -198,6 +198,14 @@ import android.content.Context;
          }
         private String _Upload = "2";
 
+     private String _NeedReview = "";
+     public String getNeedReview(){
+         return _NeedReview;
+     }
+     public void setNeedReview(String newValue){
+         _NeedReview = newValue;
+     }
+
         String TableName = "Member";
 
         public String SaveUpdateData(Context context)
@@ -227,7 +235,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Insert into "+ TableName +" (Vill,Bari,HH,MSlNo,PNo,Name,Rth,Sex,BDate,AgeY,MoNo,FaNo,Edu,MS,Ocp,Sp1,Sp2,Sp3,Sp4,EnType,EnDate,ExType,ExDate,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload)Values('"+ _Vill +"', '"+ _Bari +"', '"+ _HH +"', '"+ _MSlNo +"', '"+ _PNo +"', '"+ _Name +"', '"+ _Rth +"', '"+ _Sex +"', '"+ _BDate +"', '"+ _AgeY +"', '"+ _MoNo +"', '"+ _FaNo +"', '"+ _Edu +"', '"+ _MS +"', '"+ _Ocp +"', '"+ _Sp1 +"', '"+ _Sp2 +"', '"+ _Sp3 +"', '"+ _Sp4 +"', '"+ _EnType +"', '"+ _EnDate +"', '"+ _ExType +"', '"+ _ExDate +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"')";
+                 SQL = "Insert into "+ TableName +" (Vill,Bari,HH,MSlNo,PNo,Name,Rth,Sex,BDate,AgeY,MoNo,FaNo,Edu,MS,Ocp,Sp1,Sp2,Sp3,Sp4,EnType,EnDate,ExType,ExDate,StartTime,EndTime,DeviceID,EntryUser,Lat,Lon,EnDt,Upload,NeedReview)Values('"+ _Vill +"', '"+ _Bari +"', '"+ _HH +"', '"+ _MSlNo +"', '"+ _PNo +"', '"+ _Name +"', '"+ _Rth +"', '"+ _Sex +"', '"+ _BDate +"', '"+ _AgeY +"', '"+ _MoNo +"', '"+ _FaNo +"', '"+ _Edu +"', '"+ _MS +"', '"+ _Ocp +"', '"+ _Sp1 +"', '"+ _Sp2 +"', '"+ _Sp3 +"', '"+ _Sp4 +"', '"+ _EnType +"', '"+ _EnDate +"', '"+ _ExType +"', '"+ _ExDate +"', '"+ _StartTime +"', '"+ _EndTime +"', '"+ _DeviceID +"', '"+ _EntryUser +"', '"+ _Lat +"', '"+ _Lon +"', '"+ _EnDt +"', '"+ _Upload +"','"+ _NeedReview +"')";
                  C.Save(SQL);
                  C.close();
               }
@@ -245,7 +253,7 @@ import android.content.Context;
             String SQL = "";
             try
               {
-                 SQL = "Update "+ TableName +" Set Upload='2',Vill = '"+ _Vill +"',Bari = '"+ _Bari +"',HH = '"+ _HH +"',MSlNo = '"+ _MSlNo +"',PNo = '"+ _PNo +"',Name = '"+ _Name +"',Rth = '"+ _Rth +"',Sex = '"+ _Sex +"',BDate = '"+ _BDate +"',AgeY = '"+ _AgeY +"',MoNo = '"+ _MoNo +"',FaNo = '"+ _FaNo +"',Edu = '"+ _Edu +"',MS = '"+ _MS +"',Ocp = '"+ _Ocp +"',Sp1 = '"+ _Sp1 +"',Sp2 = '"+ _Sp2 +"',Sp3 = '"+ _Sp3 +"',Sp4 = '"+ _Sp4 +"',EnType = '"+ _EnType +"',EnDate = '"+ _EnDate +"',ExType = '"+ _ExType +"',ExDate = '"+ _ExDate +"'  Where Vill='"+ _Vill +"' and Bari='"+ _Bari +"' and HH='"+ _HH +"' and MSlNo='"+ _MSlNo +"'";
+                 SQL = "Update "+ TableName +" Set Upload='2',NeedReview='"+ _NeedReview +"',Vill = '"+ _Vill +"',Bari = '"+ _Bari +"',HH = '"+ _HH +"',MSlNo = '"+ _MSlNo +"',PNo = '"+ _PNo +"',Name = '"+ _Name +"',Rth = '"+ _Rth +"',Sex = '"+ _Sex +"',BDate = '"+ _BDate +"',AgeY = '"+ _AgeY +"',MoNo = '"+ _MoNo +"',FaNo = '"+ _FaNo +"',Edu = '"+ _Edu +"',MS = '"+ _MS +"',Ocp = '"+ _Ocp +"',Sp1 = '"+ _Sp1 +"',Sp2 = '"+ _Sp2 +"',Sp3 = '"+ _Sp3 +"',Sp4 = '"+ _Sp4 +"',EnType = '"+ _EnType +"',EnDate = '"+ _EnDate +"',ExType = '"+ _ExType +"',ExDate = '"+ _ExDate +"'  Where Vill='"+ _Vill +"' and Bari='"+ _Bari +"' and HH='"+ _HH +"' and MSlNo='"+ _MSlNo +"'";
                  C.Save(SQL);
                  C.close();
               }
@@ -291,6 +299,8 @@ import android.content.Context;
                 d._EnDate = cur.getString(cur.getColumnIndex("EnDate"));
                 d._ExType = cur.getString(cur.getColumnIndex("ExType"));
                 d._ExDate = cur.getString(cur.getColumnIndex("ExDate"));
+                d._NeedReview = cur.getString(cur.getColumnIndex("NeedReview"));
+
                 data.add(d);
 
                 cur.moveToNext();

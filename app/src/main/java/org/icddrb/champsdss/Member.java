@@ -25,7 +25,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.DatePicker;
+ import android.widget.CheckBox;
+ import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
@@ -180,6 +181,7 @@ import Common.Global;
          TextView VlblExDate;
          EditText dtpExDate;
          TextView dtpVDate;
+        CheckBox chkNeedReview;
 
     static String TableName;
 
@@ -230,6 +232,7 @@ import Common.Global;
                  adb.show();
              }});
 
+         chkNeedReview = (CheckBox)findViewById(R.id.chkNeedReview);
          seclbl1=(LinearLayout)findViewById(R.id.seclbl1);
          linelbl1=(View)findViewById(R.id.linelbl1);
          secVill=(LinearLayout)findViewById(R.id.secVill);
@@ -1075,6 +1078,8 @@ import Common.Global;
          objSave.setEndTime(g.CurrentTime24());
          objSave.setDeviceID(DEVICEID);
          objSave.setEntryUser(ENTRYUSER); //from data entry user list
+
+         objSave.setNeedReview(chkNeedReview.isChecked()?"1":"2");
          //objSave.setLat(Double.toString(currentLatitude));
          //objSave.setLon(Double.toString(currentLongitude));
 
@@ -1155,6 +1160,7 @@ import Common.Global;
              dtpEnDate.setText(item.getEnDate().toString().length()==0 ? "" : Global.DateConvertDMY(item.getEnDate()));
              txtExType.setText(item.getExType());
              dtpExDate.setText(item.getExDate().toString().length()==0 ? "" : Global.DateConvertDMY(item.getExDate()));
+               if(item.getNeedReview().equals("1")) chkNeedReview.setChecked(true); else chkNeedReview.setChecked(false);
            }
         }
         catch(Exception  e)
