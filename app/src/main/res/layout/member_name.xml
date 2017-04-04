@@ -88,7 +88,7 @@
                 <EditText
                     android:id="@+id/txtName"
                     style="@style/customEdit"
-                    android:layout_width="250sp"
+                    android:layout_width="270sp"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="0sp"
                     android:gravity="top|left"
