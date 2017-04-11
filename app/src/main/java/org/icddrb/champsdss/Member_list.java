@@ -199,7 +199,7 @@ public class Member_list extends Activity {
                      return;
                  }
 
-//                 Toast.makeText(Member_list.this, "Vill:"+VILL+"/n Bari:"+BARI+"/n HH:"+HH, Toast.LENGTH_SHORT).show();
+//               Toast.makeText(Member_list.this, "Vill:"+VILL+"/n Bari:"+BARI+"/n HH:"+HH, Toast.LENGTH_SHORT).show();
                  Intent f1;
                  f1 = new Intent(getApplicationContext(), SES.class);
                  IDbundle.putString("Vill", VILL);
@@ -243,7 +243,7 @@ public class Member_list extends Activity {
 
                      return;
                  }
-                 Toast.makeText(Member_list.this, "Vill:"+VILL+"/n Bari:"+BARI+"/n HH:"+HH, Toast.LENGTH_SHORT).show();
+//                 Toast.makeText(Member_list.this, "Vill:"+VILL+"/n Bari:"+BARI+"/n HH:"+HH, Toast.LENGTH_SHORT).show();
                  Intent f1;
                  f1 = new Intent(getApplicationContext(), PregHis.class);
                  IDbundle.putString("Vill", VILL);
@@ -255,7 +255,8 @@ public class Member_list extends Activity {
              }
          });
 
-         Button btnMemberName = (Button) findViewById(R.id.btnMemberName);
+//         Button btnMemberName = (Button) findViewById(R.id.btnMemberName);
+         btnMemberName = (Button) findViewById(R.id.btnMemberName);
          btnMemberName.setOnClickListener(new View.OnClickListener() {
 
              public void onClick(View view) {
@@ -274,20 +275,6 @@ public class Member_list extends Activity {
          txtHH.setEnabled(false);
          DataSearch(VILL,BARI,HH);
          DataStatus();
-         /*if (C.Existence("Select VStatus from SES where Vill='" + VILL + "' and Bari='" + BARI + "' and HH='" + HH + "'")) {
-             btnSES.setBackgroundColor(Color.GREEN);
-         }
-
-         //String TotRh = C.ReturnSingleValue("Select TotRWO from Household Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
-         String TotRh = C.ReturnSingleValue("Select Count(*)TotRWO from Member Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "' and (julianday(EnDate)-julianday(BDate))<=18262 and Sex='2' and MS<>'30'");
-         String PregHis = C.ReturnSingleValue("Select count(*)Total from PregHis Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
-
-//         Toast.makeText(this, ""+Integer.valueOf(TotRh), Toast.LENGTH_LONG).show();
-         if (Integer.valueOf(TotRh) == Integer.valueOf(PregHis))
-         {
-             btnPregHis.setBackgroundColor(Color.GREEN);
-         }*/
-
      }
      catch(Exception  e)
      {
@@ -328,16 +315,17 @@ public class Member_list extends Activity {
             btnPregHis.setBackgroundResource(R.drawable.button_style);
         }
 
-//        String TotalMember = C.ReturnSingleValue("Select TotMem from Household Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
-//        String TotMem = C.ReturnSingleValue("Select count(*)Total from Member Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
-//
-//        if (Integer.valueOf(TotalMember) == Integer.valueOf(TotMem))
-//        {
-//            btnMemberName.setBackgroundColor(Color.GREEN);
-//        }
-//        else{
-//            btnMemberName.setBackgroundResource(R.drawable.button_style);
-//        }
+        String TotalMember = C.ReturnSingleValue("Select TotMem from Household Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
+        String TotMem = C.ReturnSingleValue("Select count(*)Total from Member Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
+
+        if (Integer.valueOf(TotalMember) == Integer.valueOf(TotMem))
+        {
+            btnMemberName.setBackgroundColor(Color.GREEN);
+        }
+        else
+        {
+            btnMemberName.setBackgroundResource(R.drawable.button_style);
+        }
 
     }
  private void DataSearch(String Vill, String Bari, String HH )
