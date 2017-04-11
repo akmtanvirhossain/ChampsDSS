@@ -132,7 +132,6 @@ public class Member_list extends Activity {
                      Connection.MessageBox(Member_list.this, infoMiss + " জন সদস্যের তথ্য আপডেট করা হয় নাই");
                      return;
                  }
-
                  if (!C.Existence("Select PNo from Member where Vill='" + VILL + "' and Bari='" + BARI + "' and HH='" + HH + "'")) {
                      Connection.MessageBox(Member_list.this, "কমপক্ষে একজন সদস্য এন্ট্রি করতে হবে.");
                      return;
@@ -313,7 +312,8 @@ public class Member_list extends Activity {
         if (C.Existence("Select VStatus from SES where Vill='" + VILL + "' and Bari='" + BARI + "' and HH='" + HH + "'")) {
             btnSES.setBackgroundColor(Color.GREEN);
         }
-        else{
+        else
+        {
             btnSES.setBackgroundResource(R.drawable.button_style);
         }
 
@@ -327,6 +327,18 @@ public class Member_list extends Activity {
         else{
             btnPregHis.setBackgroundResource(R.drawable.button_style);
         }
+
+//        String TotalMember = C.ReturnSingleValue("Select TotMem from Household Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
+//        String TotMem = C.ReturnSingleValue("Select count(*)Total from Member Where Vill='"+ VILL +"' and Bari='"+ BARI +"' and HH='"+ HH + "'");
+//
+//        if (Integer.valueOf(TotalMember) == Integer.valueOf(TotMem))
+//        {
+//            btnMemberName.setBackgroundColor(Color.GREEN);
+//        }
+//        else{
+//            btnMemberName.setBackgroundResource(R.drawable.button_style);
+//        }
+
     }
  private void DataSearch(String Vill, String Bari, String HH )
      {
@@ -429,7 +441,6 @@ public class Member_list extends Activity {
                  txtNameHint.setVisibility(View.GONE);
              }
 
-
              Button cmdContactNoSave = (Button) dialog.findViewById(R.id.cmdSave);
              cmdContactNoSave.setOnClickListener(new View.OnClickListener() {
                  public void onClick(View arg0) {
@@ -455,11 +466,10 @@ public class Member_list extends Activity {
                                  Intent intent = new Intent(getApplicationContext(),Member_list.class);
                                  intent.putExtras(IDbundle);
                                  startActivityForResult(intent, 1);
-
                              }});
                          adb.show();
-
                      }
+
                      //***
                      Member_DataModel objSave = new Member_DataModel();
                      objSave.setVill(txtVill.getText().toString());
@@ -581,13 +591,16 @@ public class Member_list extends Activity {
          if (o.get("PNo").length() == 0) {
              MSlNo.setTextColor(Color.RED);
              Name.setTextColor(Color.RED);
+             delMember.setVisibility(View.VISIBLE);
          } else {
              if(o.get("needreview").equals("1")){
                  MSlNo.setTextColor(Color.parseColor("#006699"));
                  Name.setTextColor(Color.parseColor("#006699"));
+                 delMember.setVisibility(View.INVISIBLE);
              }else {
                  MSlNo.setTextColor(Color.BLACK);
                  Name.setTextColor(Color.BLACK);
+                 delMember.setVisibility(View.INVISIBLE);
              }
          }
 
