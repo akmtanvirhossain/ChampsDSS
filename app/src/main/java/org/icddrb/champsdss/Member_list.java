@@ -580,7 +580,8 @@ public class Member_list extends Activity {
              MSlNo.setTextColor(Color.RED);
              Name.setTextColor(Color.RED);
              delMember.setVisibility(View.VISIBLE);
-         } else {
+         } else
+             {
              if(o.get("needreview").equals("1")){
                  MSlNo.setTextColor(Color.parseColor("#006699"));
                  Name.setTextColor(Color.parseColor("#006699"));

@@ -749,7 +749,8 @@ import Common.Global;
              if(status.length()==0)
              {
                  String VS = spnVStatus.getSelectedItemPosition() == 0 ? "" : Connection.SelectedSpinnerValue(spnVStatus.getSelectedItem().toString(), "-");
-                 if(VS.equals("1")){
+                 if(VS.equals("1"))
+                 {
                      Intent returnIntent = new Intent();
                      returnIntent.putExtra("res", "hh");
                      setResult(Activity.RESULT_OK, returnIntent);
@@ -781,7 +782,6 @@ import Common.Global;
              Connection.MessageBox(Household_Visit.this, status);
              return;
          }
-
      }
      catch(Exception  e)
      {

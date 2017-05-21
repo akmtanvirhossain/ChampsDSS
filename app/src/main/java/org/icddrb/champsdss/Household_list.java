@@ -145,7 +145,6 @@ public class Household_list extends Activity  {
              }
          });
 
-
          spnVill.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
              @Override
              public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
@@ -502,7 +501,6 @@ public class Household_list extends Activity  {
      }
  }
 
-
  public void DataSearch(String Vill, String Bari)
      {
        try
@@ -636,8 +634,6 @@ public class Household_list extends Activity  {
                IDbundle.putString("Vill", o.get("Vill"));
                IDbundle.putString("Bari", o.get("Bari"));
                IDbundle.putString("HH", o.get("HH"));
-
-//               String B =(spnBari.getSelectedItem().toString().substring(5,spnBari.getSelectedItem().toString().length()));
                IDbundle.putString("HHHead",o.get("HHHead"));
                Intent f1;
                f1 = new Intent(getApplicationContext(), Household_Visit.class);
@@ -660,12 +656,10 @@ public class Household_list extends Activity  {
                      }
                  });
                  adb.show();
-
              }
          });
          return convertView;
        }
  }
-
 
 }

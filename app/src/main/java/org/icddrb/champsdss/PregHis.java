@@ -357,10 +357,10 @@ import Common.Global;
          List<String> listVStatus = new ArrayList<String>();
          
          listVStatus.add("");
-         listVStatus.add("1-ইন্টারভিউ সম্পন্ন");
-         listVStatus.add("2-তথ্য  দানে অসন্মতি");
-         listVStatus.add("3-সদস্য অনুপস্থিত");
-         listVStatus.add("9-অন্যান্য");
+//         listVStatus.add("1-ইন্টারভিউ সম্পন্ন");
+//         listVStatus.add("2-তথ্য  দানে অসন্মতি");
+//         listVStatus.add("3-সদস্য অনুপস্থিত");
+//         listVStatus.add("9-অন্যান্য");
          ArrayAdapter<String> adptrVStatus= new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, listVStatus);
          spnVStatus.setAdapter(adptrVStatus);
 
