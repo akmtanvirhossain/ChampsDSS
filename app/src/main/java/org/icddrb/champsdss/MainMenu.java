@@ -132,6 +132,7 @@ public class MainMenu extends Activity {
                                         tableList.add("PregHis");
 
                                         C.Sync_Upload(tableList);
+                                        C.Sync_Download("Village",DEVICEID,"");
 
                                     } catch (Exception e) {
 
