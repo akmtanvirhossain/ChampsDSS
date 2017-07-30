@@ -7,7 +7,8 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
+ import android.database.Cursor;
+ import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -77,6 +78,7 @@ public class Member_list extends Activity {
     Bundle IDbundle;
     private static String CurrentVillage;
     private static String CurrentVCode;
+    private String ErrMsg;
 
     static String STARTTIME = "";
     static String VILL = "";
@@ -128,6 +130,10 @@ public class Member_list extends Activity {
              public void onClick(View v) {
                  String infoMiss = C.ReturnSingleValue("Select count(*)TotalMiss from Member where Vill='" + VILL + "' and Bari='" + BARI + "' and HH='" + HH + "' and length(Sex)=0");
 
+                 String SQLS = "";
+                 String Household = VILL + BARI + HH;
+                 ErrMsg = "";
+
                  if (Integer.valueOf(infoMiss) > 0) {
                      Connection.MessageBox(Member_list.this, infoMiss + " জন সদস্যের তথ্য আপডেট করা হয় নাই");
                      return;
@@ -145,6 +151,43 @@ public class Member_list extends Activity {
                      Connection.MessageBox(Member_list.this, "Required: খানার তথ্য  খালি রাখা যাবেনা ");
                      return;
                  }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+                 //Father number is available but Father not available in Member list add on 27 July
+
+                 SQLS  = "select MSlNo as sno, (case when pno is null or length(pno)=0 then 'pno' else pno end)as pno, t.Name as name from Member t where ";
+                 SQLS += " t.Vill||t.Bari||t.Hh='"+ Household +"' and length(t.extype)=0";
+                 SQLS += " and t.fano <>'00' and not exists";
+                 SQLS += " (select * from Member where VILL||BARI||hh=t.Vill||t.Bari||t.Hh and Mslno=t.fano and sex='1')";
+
+                 Cursor CRFaNo = C.ReadData(SQLS);
+                 CRFaNo.moveToFirst();
+                 while(!CRFaNo.isAfterLast())
+                 {
+                     Connection.MessageBox(Member_list.this, "বাবার সিরিয়াল নং ঠিক নাই (সিরিয়াল নাম্বার= "+  CRFaNo.getString(CRFaNo.getColumnIndex("sno")) +" নাম= "+ CRFaNo.getString(CRFaNo.getColumnIndex("name")));
+                     CRFaNo.moveToNext();
+                     return;
+                 }
+                 CRFaNo.close();
+
+                //Mother number is available but mother not available in member list
+
+                 SQLS  = "select MSlNo as sno, (case when pno is null or length(pno)=0 then 'pno' else pno end)as pno, t.Name as name from Member t where ";
+                 SQLS += " t.Vill||t.Bari||t.Hh='"+ Household +"' and length(t.extype)=0 ";
+                 SQLS += " and t.mono <>'00' and not exists";
+                 SQLS += " (select * from Member where VILL||BARI||hh=t.Vill||t.Bari||t.Hh and Mslno=t.mono and sex='2')";
+
+                 Cursor CRMoNo = C.ReadData(SQLS);
+                 CRMoNo.moveToFirst();
+                 while(!CRMoNo.isAfterLast())
+                 {
+//                     ErrMsg += "\n-> মা এর সিরিয়াল নং ঠিক নাই  (সিরিয়াল নাম্বার= "+  CRMoNo.getString(CRMoNo.getColumnIndex("sno")) +" নাম= "+ CRMoNo.getString(CRMoNo.getColumnIndex("name")) +" ).";
+                     Connection.MessageBox(Member_list.this, "মা এর সিরিয়াল নং ঠিক নাই (সিরিয়াল নাম্বার= "+  CRMoNo.getString(CRMoNo.getColumnIndex("sno")) +" নাম= "+ CRMoNo.getString(CRMoNo.getColumnIndex("name")));
+                     CRMoNo.moveToNext();
+                     return;
+                 }
+                 CRMoNo.close();
+//--------------------------------------------------------------------------------------------------------------------------------------------
                  AlertDialog.Builder adb = new AlertDialog.Builder(Member_list.this);
                  adb.setTitle("Close");
                  adb.setMessage("আপনি কি এই ফরম থেকে বের হতে চান [হ্যাঁ/না]?");
